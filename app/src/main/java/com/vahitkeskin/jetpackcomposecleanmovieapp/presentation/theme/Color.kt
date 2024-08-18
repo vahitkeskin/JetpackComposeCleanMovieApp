@@ -1,4 +1,4 @@
-package com.vahitkeskin.jetpackcomposecleanmovieapp.ui.theme
+package com.vahitkeskin.jetpackcomposecleanmovieapp.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
