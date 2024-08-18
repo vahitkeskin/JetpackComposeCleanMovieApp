@@ -1,6 +1,5 @@
-package com.vahitkeskin.jetpackcomposecleanmovieapp.ui.theme
+package com.vahitkeskin.jetpackcomposecleanmovieapp.presentation.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
