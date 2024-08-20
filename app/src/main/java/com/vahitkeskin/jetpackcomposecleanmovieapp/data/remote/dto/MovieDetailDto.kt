@@ -1,5 +1,7 @@
 package com.vahitkeskin.jetpackcomposecleanmovieapp.data.remote.dto
 
+import com.vahitkeskin.jetpackcomposecleanmovieapp.domain.model.MovieDetail
+
 data class MovieDetailDto(
     val Actors: String,
     val Awards: String,
@@ -27,3 +29,7 @@ data class MovieDetailDto(
     val imdbRating: String,
     val imdbVotes: String
 )
+
+fun MovieDetailDto.toMovieDetail(): MovieDetail {
+    return MovieDetail(Actors, Awards, Country, Director, Genre, Language, Poster, Rated, Released, Title, Type, Year, imdbID, imdbRating)
+}
