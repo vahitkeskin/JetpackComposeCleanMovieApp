@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.vahitkeskin.jetpackcomposecleanmovieapp.presentation.Screen
 import com.vahitkeskin.jetpackcomposecleanmovieapp.presentation.movies.MoviesEvent
 import com.vahitkeskin.jetpackcomposecleanmovieapp.presentation.movies.MoviesViewModel
 
@@ -61,7 +62,7 @@ fun MovieScreen(
             ) {
                 items(state.movie) { movie ->
                     MovieListRow(movie = movie, onItemClick = {
-                        //navController.navigate(Screen.MovieDetailScreen.route+"id")
+                        navController.navigate(Screen.MovieDetailScreen.route+"/${movie.imdbID}")
                     })
                 }
             }
