@@ -1,13 +1,15 @@
 package com.vahitkeskin.jetpackcomposecleanmovieapp.presentation.movies.views
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
+import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
+import androidx.compose.foundation.lazy.staggeredgrid.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
@@ -57,15 +59,19 @@ fun MovieScreen(
                 }
             )
 
-            LazyColumn(
+            LazyVerticalStaggeredGrid(
+                columns = StaggeredGridCells.Fixed(3),
+                verticalItemSpacing = 4.dp,
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                content = {
+                    items(state.movie) { movie ->
+                        MovieListRow(movie = movie, onItemClick = {
+                            navController.navigate(Screen.MovieDetailScreen.route+"/${movie.imdbID}")
+                        })
+                    }
+                },
                 modifier = Modifier.fillMaxSize()
-            ) {
-                items(state.movie) { movie ->
-                    MovieListRow(movie = movie, onItemClick = {
-                        navController.navigate(Screen.MovieDetailScreen.route+"/${movie.imdbID}")
-                    })
-                }
-            }
+            )
         }
     }
 
